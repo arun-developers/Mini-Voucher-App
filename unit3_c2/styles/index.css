@@ -1,0 +1,52 @@
+#navbar {
+    width: 100%;
+    height: 75px;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-between;
+    background-color: teal;
+    color: white;
+  }
+
+  a {
+    margin-top: 25px;
+    text-decoration: none;
+    margin-right: 10px;
+    color: white;
+  }
+
+  h2 {
+    margin-left: 10px;
+  }
+
+  .userDetails {
+    width: 40%;
+    height: 320px;
+    /* border: 1px solid red; */
+    justify-content: center;
+    margin: auto;
+    margin-top: 5px;
+    background-color: rgba(145, 240, 240, 0.842);
+
+  }
+
+  input {
+    margin-top: 15px;
+    width: 60%;
+    height: 30px;
+    margin-left: 107px;
+
+  }
+
+  #submit {
+    margin-top: 15px;
+    height: 30px;
+    width: 90px;
+    font-size: 15px;
+    background-color: rgba(60, 209, 60, 0.842);
+    margin-left: 225px;
+    cursor: pointer;
+  }
+  h3{
+    text-align: center;
+  }
