@@ -1,5 +1,6 @@
 let walletAmount = JSON.parse(localStorage.getItem(("user")) || { object: wallet });
-let reduceAmount = JSON.parse(localStorage.getItem("amount"));
+let reduceAmount = JSON.parse(localStorage.getItem("amount1"));
+// console.log(reduceAmount)
 let walletBalance = document.getElementById("wallet_balance").innerText = `Wallet Balance : ${walletAmount.wallet - reduceAmount}`;
 console.log(walletAmount.wallet);
 const API = "https://masai-vouchers-api.herokuapp.com/api/vouchers";
@@ -7,7 +8,7 @@ async function fetchData() {
     try {
         let responce = await fetch(API);
         let data = await responce.json();
-        console.log(data);
+        // console.log(data);
         showData(data[0].vouchers);
 
     } catch (error) {
@@ -43,11 +44,17 @@ function showData(data) {
     })
 
 }
+let array = [];
+let sum = 0;
 let voucherArr = JSON.parse(localStorage.getItem("purchase")) || [];
+for (let i = 0; i < voucherArr.length; i++) {
+    sum += voucherArr[i].price;
+}
+localStorage.setItem("amount1", JSON.stringify(sum));
 
 function addVoucher(el) {
+
     if (walletBalance) {
-        localStorage.setItem("amount", JSON.stringify(el.price));
         alert("Hurray! purchase successful");
         voucherArr.push(el);
         localStorage.setItem("purchase", JSON.stringify(voucherArr));
@@ -55,6 +62,7 @@ function addVoucher(el) {
     }
     else {
         console.log("Sorry! insufficient balance");
+        window.location.reload();
     }
 
 }

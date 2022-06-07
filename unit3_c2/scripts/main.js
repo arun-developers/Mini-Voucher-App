@@ -5,8 +5,9 @@ function submitDetails() {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         address: document.getElementById("address").value,
-        wallet: document.getElementById("amount").value
+        wallet: document.getElementById("amount").value,
     };
+    console.log(object);
     localStorage.setItem("user", JSON.stringify(object));
     window.location.reload();
     // console.log(array)

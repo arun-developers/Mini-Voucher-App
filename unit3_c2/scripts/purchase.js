@@ -1,8 +1,19 @@
+let array = [];
+let sum = 0;
 let dataFormLocalStorage = JSON.parse(localStorage.getItem("purchase"));
 // console.log(dataFormLocalStorage);
+for (let i = 0; i < dataFormLocalStorage.length; i++) {
+    array.push(dataFormLocalStorage[i].price);
+}
+for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+}
+console.log(sum);
+console.log(array);
+// localStorage.setItem("amount", JSON.stringify(sum));
 let dataFromLocalDetail = JSON.parse(localStorage.getItem("user")) || { object: wallet };
-let dataReduce = JSON.parse(localStorage.getItem("amount"));
-let showWalletBalance = document.getElementById("wallet_balance").innerText = `Wallet Balance : ${dataFromLocalDetail.wallet - dataReduce}`;
+// let dataReduce = JSON.parse(localStorage.getItem("amount"));
+let showWalletBalance = document.getElementById("wallet_balance").innerText = `Wallet Balance : ${dataFromLocalDetail.wallet - sum}`;
 let container = document.getElementById("purchased_vouchers");
 append(dataFormLocalStorage);
 function append(data) {
